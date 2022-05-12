@@ -1,0 +1,109 @@
+ <div class="container-fluid">
+     <div class="row bg-light text-danger p-1 mx-1 rounded">
+        <div class="col-12 col-md-4">
+            <i class=" fa fa-shopping-cart mx-1"></i>
+            <strong>Ordre <strong class="text-warning">Summery</strong></strong>
+        </div>
+         <div class="col-12 col-md-2 offset-6">
+            <button (click)="goback()" class="btn btn_Design m-1" role="button">Back To Cart</button>
+        </div>
+     </div>
+ </div>
+ <div class="container-fluid mt-4">
+     <div class="row">
+         <div class="col-md-6 col-12 p-2 ">
+            <div class="border rounded m-2 p-2">
+             <h2 class="m-2 p-2 text-primary">PickUp Details</h2>
+                <hr/>
+                <div class="row mt-2">
+                    <div class="col-md-3 col-12">
+                        <label for="name">Name Person</label>
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <input type="text" name="name" [(ngModel)]="orderHeader.name" class="form-control"  >
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-3 col-12">
+                        <label for="Phone">Phone</label>
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <input #phone type="text" [(ngModel)]="orderHeader.phone"  name="Phone" class="form-control"  >
+                    </div>
+                </div>
+    
+                <div class="row mt-2">
+                    <div class="col-md-3 col-12">
+                        <label for="Address">Address</label>
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <input #address type="text" [(ngModel)]="orderHeader.city"  name="Address" class="form-control"  >
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-3 col-12">
+                        <label for="City">City</label>
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <input type="text" [(ngModel)]="orderHeader.address" name="City" class="form-control"  >
+                    </div>
+                </div> 
+                <div class="row mt-2">
+                    <div class="col-md-3 col-12">
+                        <label for="Email">Email</label>
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <input type="text" [(ngModel)]="orderHeader.email" name="Email" class="form-control"  >
+                    </div>
+                </div> 
+                 <div class="row mt-2">
+                    <div class="col-md-3 col-12">
+                        <label for="comments">comments</label>
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <textarea #comment type="text" [(ngModel)]="orderHeader.comments" name="comments" class="form-control"  ></textarea>
+                    </div>
+                </div>
+    
+            </div>
+
+         </div>
+         <div class="col-md-6 col-12">
+             <div class="mx-2 p-2">
+                 <h2 class="text-center">Ordre Summery</h2>
+                 <div class="" >
+                    <div class="card">
+                        <ul class="list-group list-group-flush" *ngFor="let order of orders">
+                            <li class="list-group-item"> 
+                                <div class="row">
+                                    <div class="col-md-9 col">
+                                        <h6 class="">{{order.nameProduct}}</h6>
+                                        <p class="text-muted">Frequency : {{order.count}}</p>
+                                    </div>
+                                    <div class="col-md-3 col">
+                                        <h2 class="">{{order.totalPrice}}$</h2>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <li class="list-group-item bg-light p-2 ">
+                            <div class="row">
+                                <div class="col-md-4 col-12">
+                                    <span class="text-muted">Total (USD)</span>
+                                </div>
+                                <div class="col-md-3 offset-5 col-12">
+                                    {{Allprice}}$
+                                </div>
+                            </div>
+
+                        </li>
+                    </div>
+                    <a  (click)="save()" class="btn btn-primary form-control my-2" role="button">Place Order</a>
+                    
+                </div>
+             </div>
+         </div>
+     </div>
+ </div>
+
+ <app-footer></app-footer>

@@ -1,0 +1,10 @@
+.btn_Design{
+    border-radius: 6px;
+    border:1px solid blue;
+    color:blue;
+}
+.btn_Design:hover{
+    border-radius: 6px;
+    border:1px solid black;
+    background-color: white;
+}

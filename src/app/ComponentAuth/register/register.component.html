@@ -1,0 +1,90 @@
+ 
+	<img class="wave" src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/wave.png">
+	<div class="container">
+		<div class="img">
+			<img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/bg.svg">
+		</div>
+		<div class="login-content">
+			<form [formGroup]="RegisterForm" (ngSubmit)="OnSubmet()" #f="ngForm">
+				<img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg">
+				<h2 class="title">Welcome</h2>
+				<div class="input-div one">
+					<div class="i">
+							<i class="fa fa-lock"></i>
+					</div>
+					<div class="div">
+							<h5>First Name</h5>
+							<input type="text" formControlName="firstName"  name="firstName" required class="form-control p-2 mt-1" >
+				  </div>
+				 </div>	
+				<div class="input-div one">
+					<div class="i">
+							<i class="fa fa-lock"></i>
+					</div>
+					<div class="div">
+							<h5>Last Name</h5>
+							<input type="text" formControlName="lastName"   name="lastName" required class="form-control p-2 mt-1" >
+				  </div>
+				 </div>	
+				
+				 <div class="input-div one">
+					<div class="i">
+							<i class="fa fa-user"></i>
+					</div>
+					<div class="div">
+							<h5>E-mail</h5>
+							<input type="text" formControlName="emailAddress"  name="emailAddress" required class="form-control p-2 mt-1" >
+ 
+				  </div>
+				 </div>
+				 <div class="input-div one">
+					<div class="i">
+							<i class="fa fa-user"></i>
+					</div>
+					<div class="div">
+							<h5>City</h5>
+							<input type="text" formControlName="userName"  name="emailAddress" required class="form-control p-2 mt-1" >
+ 
+				  </div>
+				 </div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fa fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input type="password" formControlName="password"  name="pass" class="form-control p-2 mt-1" required>
+                    </div>
+
+                    <!-- <div class="alert alert- m-5" *ngIf="passControl.touched && passControl.invalid" >this box requird</div> -->
+            	</div>
+				<div class="row col" *ngIf="(currentUser$|async)===null">
+					<div class=" col text-center">
+						<input type="text" value="user"  formControlName="type"  name="type" class="form-control p-2 mt-1" required>
+					</div>
+				  </div>
+				<div class="" *ngIf="(currentUser$|async)">
+					<div class=" col-12 ">
+						<div class="mb-3" *ngIf="(currentUser$|async).role==='Manager'">
+							<div class="">
+								<h5>Type Admain</h5>
+								<input type="text" #val  class="form-control" [value]="(currentUser$|async).role" >
+								<a name="" id="" class="btn btn-primary" (click)="insertType(val.value)" role="button"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+            	<!-- <a href="#">Forgot Password?</a> -->
+            	<input type="submit" class="btn" value="New Account" >
+            	<input type="submit" class="btn" value="Login" routerLink="/login" routerLinkActive="active">
+            </form>
+			<div class="row " *ngIf="(currentUser$|async)">
+				<div class=" col ">
+					<!-- <input type="text" #val  class="form-control" [value]="(currentUser$|async).role" (onload)="data(val)" > -->
+					<!-- <a href="#" class="list-group-item list-group-item-action  " >Wellcom : {{(currentUser$|async).role}}</a> -->
+				</div>
+				</div>
+        </div>
+    </div>
+     

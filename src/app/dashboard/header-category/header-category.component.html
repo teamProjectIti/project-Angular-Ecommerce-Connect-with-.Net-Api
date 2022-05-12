@@ -1,0 +1,94 @@
+<h1 class="p-1 m-1 bg-primary rounded text-light text-center" >Add New Product </h1>
+<div>
+    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit(uploadForm.value)">      
+      <div>
+        <div class="mb-3 mx-4">
+            <label for="name" class="form-label">name</label>
+            <input type="text" formControlName="Name" class="form-control" id="name">
+          </div>
+           <div class="mb-3 mx-4">
+            <label for="Description" class="form-label">Description</label>
+            <textarea type="text" formControlName="Description" class="form-control" id="Description"></textarea>
+          </div>
+        
+          <div class="row">
+            <div class="col-6">
+              <div class="mb-3 mx-4">
+                  <label for="Price" class="form-label">Price</label>
+                  <input type="text" formControlName="Price" class="form-control" id="Price">
+                </div> 
+            </div>
+            <div class="col-6">
+              <div class="mb-3 mx-4">
+                  <label for="qountity" class="form-label">Qountity</label>
+                  <input type="text" formControlName="qountity" class="form-control" id="qountity">
+                </div>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-6">
+              <div class="mb-3 mx-4">
+                  <label for="Date_attach" class="form-label">Date Attach</label>
+                  <input type="date" formControlName="Date_attach" class="form-control" id="Date_attach">
+                </div> 
+            </div>
+            <div class="col-6">
+              <div class="mb-3 mx-4">
+                  <label for="Date_Experied" class="form-label">Date Experied</label>
+                  <input type="date" formControlName="Date_Experied" class="form-control" id="Date_Experied">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="CatSel" class="form-label">--Select Category--</label>
+                    <select class="form-control" formControlName="categore_ID"
+                      name="cat" id="CatSel" title="catgory" required>
+                      <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
+                    </select>
+                  </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="brand" class="form-label">--Select Brand--</label>
+                    <select class="form-control" formControlName="product_ID_brand"
+                      name="brand" id="brand" title="brand" required>
+                      <option *ngFor="let brand of BrandList" [value]="brand.id">{{brand.name}}</option>
+                    </select>
+                  </div>
+            </div>
+        </div>
+        
+            <div class="row p-2">
+                <div class="col-6">
+                    <div class="mb-3 col-6" style="margin:20px auto;"> 
+                        <label for="picture" class="form-label">product image</label>
+                        <img class="img-thumbnail" [src]="productImg" style="width:250px;height:200px;margin:30px auto;">
+                        <input type="file" name="img" formControlName="PictureUrl" class="form-control"  (change)="handleFileInput2($event)">
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3 col-12 row">
+                        <label for="picture" class="form-label d-block">product gallery</label>
+                        <ng-container *ngFor="let url of urls index as i">
+                            <div class="col-6">
+                                 <img   class="img-thumbnail"   [src]="url" style="width:250px;height:200px;margin-left:10px;">
+                            </div>
+                        </ng-container>
+                          <input type="file" name="imgs" class="form-control" formControlName="picturGallaryFils"  (change)="onselect2($event)" multiple="multiple">
+                    </div> <!--products gallery-->
+                </div>
+            </div>
+      
+          
+      
+
+    </div>
+      <div class="p-2 m-2">
+        <button type="submit" class="btn btn-primary form-control">Upload</button>
+      </div>
+    </form>
+  </div>
+ 

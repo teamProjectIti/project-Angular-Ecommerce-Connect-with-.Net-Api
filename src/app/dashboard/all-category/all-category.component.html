@@ -1,0 +1,22 @@
+
+  <table class="table my-3">
+    <thead class="bg-dark text-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Setting</th>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let cat of categoreList; let i=index;">
+          <tr>
+                <td>All Category</td>
+                <td>{{cat.id}}</td>
+                <td>{{cat.name}}</td>
+                <td><a name="" id="" class="btn btn-danger"  role="button" (click)="deleteItem(cat.id)">Delete</a></td>
+                <td><a name="" id="" class="btn btn-info"  role="button" [routerLink]="['/category/', cat.id]">Edit</a></td>
+                <td><a name="" id="" class="btn btn-primary"  role="button" [routerLink]="['/category/']">New</a></td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>

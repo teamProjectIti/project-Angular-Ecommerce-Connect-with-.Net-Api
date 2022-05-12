@@ -1,0 +1,23 @@
+<form #prdFrm="ngForm" (ngSubmit)="saveCategory()">
+    <div class="mb-3 p-4 ">
+      <label for="pName" class="form-label">Category Name</label>
+      <input #catName="ngModel" type="text" [(ngModel)]="categore.name"
+        class="form-control" [class.is-valid]="catName.valid" [class.is-invalid]="catName.invalid && catName.touched" name="pName" id="PName" placeholder="" required minlength="3">
+        {{categore.name}}
+        <div [hidden]="catName.valid || catName.untouched">
+        <small *ngIf="catName.errors?.['required']" id="helpId" class="form-text text-muted d-block">Product Name is Required</small>
+        <small *ngIf="catName.errors?.['minlength']" id="helpId2" class="form-text text-muted d-block">Product Name must be 3 letters at least</small>
+      </div>
+    </div>
+    <button [disabled]="prdFrm.invalid" type="submit" class="btn btn-success" >Submit</button>
+  </form>
+  <br>
+  <hr>
+   
+<div class="container">
+    <app-all-category></app-all-category>
+</div>  
+
+
+
+

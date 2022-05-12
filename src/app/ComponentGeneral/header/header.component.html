@@ -1,0 +1,87 @@
+<nav class="">
+ 
+    <div class="container-fluid">
+       <div class="row p-1">
+            <div class="col-md-3 col " style="height:90px;cursor: pointer;">
+                <img src="assets/index.png"  routerLink="/slider" routerLinkActive="active" class="h-100" alt="logo">
+            </div>
+            <nav class=" col-md-4 col">
+            <div class="">
+              <div class="" id=" ">
+                <ul class="nav justify-content-center me-auto mb-2 pt-3 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/slider" routerLinkActive="active"><i class="fa fa-home"></i> Home</a>
+                  </li>
+                  <li  class="nav-item hand">
+                    <a class="nav-link" routerLink="/shop" routerLinkActive="active">
+                      <i class="fa fa-shopping-bag"></i>
+                      Shoping</a>
+                  </li>
+                  <li class="nav-item hand"  *ngIf="(currentUser$|async)">
+                    <input type="hidden"  [value]="(currentUser$|async).email" name="" #val>
+                    <a class="nav-link" [routerLink]="['/AllOrder/',val.value ]" routerLinkActive="active">My Order</a>
+                  </li> 
+                  <li class="nav-item hand"  *ngIf="(currentUser$|async)">
+                    <input type="hidden"  [value]="(currentUser$|async).email" name="" #val>
+                    <a class="nav-link" [routerLink]="['/basket/',val.value ]" routerLinkActive="active">
+                    <!-- <i class="fs-3 fa fa-shopping-cart"></i>&nbsp;(0) -->
+                     <i class=" fa fa-shopping-cart"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item hand"  *ngIf="(currentUser$|async)===null">
+                    <input type="hidden"  [value]="(currentUser$|async).email" name="" #val>
+                    <a class="nav-link"  routerLink="/basket" routerLinkActive="active" routerLinkActive="active">
+                    <i class=" fa fa-shopping-cart"></i>&nbsp;(0)
+                    </a>
+                  </li>
+                  <li class="nav-item hand">
+                    <a class="nav-link" routerLink="/contact" routerLinkActive="active"><i class="fa fa-comment"></i></a>
+                    
+                  </li>
+                  
+                </ul> 
+              </div>
+            </div>
+          </nav>
+          <div class="row col-md-4 col-12 pt-3" *ngIf="(currentUser$|async)===null">
+
+           
+            <div class=" col col-md-4 text-center">
+              <a href="#" class="list-group-item list-group-item-action active"  routerLink="/login" routerLinkActive="active">Login</a>
+              </div>
+              <div class="col col-md-4 text-center ">
+                  <a href="#" class="list-group-item list-group-item-action  " routerLink="/register" routerLinkActive="active">register</a>
+              </div>
+          </div>
+          
+         
+          <div class="row col-md-5 col pt-3" *ngIf="(currentUser$|async)">
+
+          <div class="col">
+            </div>
+              <div class=" col ">
+                  <a href="#" class="list-group-item list-group-item-action  " >Wellcom : {{(currentUser$|async).firstName}}</a>
+              </div>
+              <div class="dropdown col">
+                <span class="list-group-item list-group-item-action ">My Account</span>
+                <div class="dropdown-content">
+                <p class="hoverText b-2">Edit Profile</p>
+                <p class="hoverText b-2" routerLink="/detailsUser">Details</p>
+                <div class="" *ngIf="(currentUser$|async)">
+                  <div class=" col-12 ">
+                    <div class="mb-3" *ngIf="(currentUser$|async).role==='Manager'">
+                      <div class="">
+                        <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  <hr/>
+                <p class="hoverText b-2" (click)="logout()">Logout</p>
+                </div>
+              </div>
+              
+          </div>
+       </div>
+    </div>
+</nav>

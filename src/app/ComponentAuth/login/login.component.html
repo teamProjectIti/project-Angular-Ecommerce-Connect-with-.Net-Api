@@ -1,0 +1,36 @@
+ 
+	<img class="wave" src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/wave.png">
+	<div class="container">
+		<div class="img">
+			<img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/bg.svg">
+		</div>
+		<div class="login-content">
+			<form [formGroup]="loginForm" (ngSubmit)="OnSubmet()">
+				<img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg">
+				<h2 class="title">Welcome</h2>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fa fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>E-mail</h5>
+           		   		<input type="text" formControlName="emailAddress"  name="email" required class="form-control p-2 mt-1" >
+   
+                    </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fa fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input type="password" formControlName="password" name="pass" class="form-control p-2 mt-1" required>
+                    </div>
+                    <!-- <div class="alert alert- m-5" *ngIf="passControl.touched && passControl.invalid" >this box requird</div> -->
+
+            	</div>
+            	<input type="submit"   class="btn" value="Login">
+            </form>
+        </div>
+    </div>
+     

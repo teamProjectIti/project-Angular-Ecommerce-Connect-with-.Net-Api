@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col">
+            <div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Your Email</label>
+                <input type="text" readonly [value]="(currentUser$|async).email"
+                  class="form-control" name=""   id="" aria-describedby="helpId" placeholder="">
+              </div>
+              <div class="mb-3">
+                    <label for="" class="form-label">Name Product</label>
+                    <input type="text" readonly value=" "
+                      class="form-control" name="" [(ngModel)]="product.name_product" id="" aria-describedby="helpId" placeholder="">
+                  </div>
+                  <div class="mb-3">
+                    <label for="" class="form-label">Description Product</label>
+                    <textarea type="text" readonly value=" "
+                      class="form-control" name="" [(ngModel)]="product.descripation" id="" aria-describedby="helpId" placeholder=""></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="" class="form-label">Price</label>
+                    <input type="text" readonly value=" "
+                      class="form-control" [(ngModel)]="product.price" name="" id="" aria-describedby="helpId" placeholder="">
+                  </div>
+                  <div class="mb-3">
+                    <label for="" class="form-label">Count</label>
+                    <input #val (keyup)="clac(val.value,product.price)" type="text"  value=" "
+                      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  </div>
+                  <br/>
+                  <hr/>
+
+                   <div class="mb-3">
+                    <label for="" class="form-label">Total Price</label>
+                    <input [(ngModel)]="totaprice" type="text" readonly value=""
+                      class="form-control" readonly name="form-control" id="" aria-describedby="helpId" placeholder="">
+                  </div> 
+                <input type="hidden" #value readonly [value]="(currentUser$|async).email"/>
+                  <button (click)="saveOrder(value.value)" class="btn btn-success mx-3" >Submit</button>
+                  <button (click)="goBack()" class="btn btn-outline-primary " >Back To Page</button>
+                </div>
+        </div>
+        <div class="col-md-4 col" style="height: 200px;">
+          <h3 class="text-center">Image Product </h3>
+            <img [src]="product.image" class="img-thumbnail" alt="">
+            <br/>
+            <hr/>
+            <img src="assets/userdetails.png" height="100%" class=" " alt="user">
+        </div>
+    </div>
+</div>

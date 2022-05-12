@@ -1,0 +1,20 @@
+.border-img{
+    box-shadow: 1px 1px 2px 2px rgb(131, 40, 40);
+}
+.parnet-Image{
+    overflow:hidden;
+    border-radius:10px;
+    box-shadow:1px 1px 1px 1px silver;
+}
+
+.img-Hover{
+    transition: all 0.7s ease-in-out;
+     background:black;
+    opacity:0.7;
+    height:100%;
+    width:100%;
+}
+.img-Hover:hover{
+    transform: scale(1.1);
+   opacity:1;
+}

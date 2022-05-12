@@ -1,0 +1,53 @@
+
+<div class="container">
+    <div class="bg-light p-3 mb-2 ">
+            <h3 class="text-center fs-3">All Product In Basket</h3>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row p-2">
+        <div class="col col-md-8 p-2 border rounded">
+            
+            <div class="" *ngIf="product == null">
+                <div class="alert alert-warning" role="alert">
+                    <strong>this basket is empty</strong>
+                </div>
+            </div> 
+            <div class="" *ngIf="product != null">
+                <div class="row" *ngFor="let item of product">
+                    <div class="row">
+                        <div class="col col-md-4">
+                            <h3>{{item.name}}</h3>
+                            <p class="">{{item.description| slice: 0:100}}</p>
+                            <p class="">Price : <strong>  {{item.price}} $ </strong></p>
+                            <p class="">Type Category  : <strong>  {{item.categore_name}} </strong></p>
+                            <p class="">Type Brand  : <strong>  {{item.product_brand_name}} </strong></p>
+                            
+                        </div>
+                        <div class="col col-md-4 offset-4">
+                            <img [src]="item.pictureUrl" class="img-fluid rounded-top rounded-end" alt="">
+                        </div>
+                    </div>
+                    <br/>
+                    <hr>
+                </div>
+            </div>
+         
+        </div>
+        <div class="col col-md-4">
+            <div class="">
+                <img src="assets/indexShop.png" class="img-fluid h-100 w-100  " alt="Masket">
+                <img src="assets/basket.png" class="img-thumbnail h-100 w-100  " alt="Masket">
+            </div>
+        </div>
+    </div>    
+</div>
+
+
+
+
+
+
+<div *ngFor="let item of product">
+</div>

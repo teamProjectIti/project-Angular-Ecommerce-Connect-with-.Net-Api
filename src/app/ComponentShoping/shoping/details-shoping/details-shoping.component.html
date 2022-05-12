@@ -1,0 +1,36 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-12">
+            <p class="text-center bg-primary text-light p-2 mt-2 mb-3">All Image For Product</p>
+
+            <div class=" ">
+                <div class="p-2 parnet-Image">
+                    <img class="card-img-top border rounded img-Hover" [src]="product.pictureUrl" alt="">
+                </div>
+                <div class="container-fluid">
+                    <div class="row" >
+                        <div class="col m-2" *ngFor="let img of url">
+                            <img class="border-img card-img-top border rounded" [src]="img.url" alt="">
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 col-12">
+                <div class="border p-1">
+                    <div class="bg-light text-center p-2 rounded">More Details About Product</div>
+                    <h3 class="text-primary p-1">Name: {{product.name}}</h3>
+                    <p><strong class="text-muted">Description</strong>  :  {{product.description}}</p>
+                    
+                     <p class=""><strong class="text-muted"> Type Categore</strong> :{{product.categore_name}}</p>
+                     <p class=""><strong class="text-muted"> Type Brand</strong> : {{product.product_brand_name}}</p>
+                    <p class=""><strong class="text-muted">Price</strong> : <span class="text-info">{{product.price}}</span>$</p>
+                </div>
+                <div class="text-center">
+                    <a name="" id="" class="btn btn-light border m-1" role="button" (click)="goBack()" >Back Last Page</a>
+                    <a name="" id="" class="btn btn-primary m-1" role="button" (click)="Buy(product.id)" >Add To Card</a>
+                </div>
+        </div>
+    </div>
+</div>
